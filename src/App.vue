@@ -1,7 +1,17 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <nav class="nav">
+    <a class="nav-link">
+      <router-link to="/">Home</router-link>
+    </a>
+    <a class="nav-link">
+      <router-link to="/ordemservico">Ordens de Servico</router-link>
+    </a>
+    <a class="nav-link">
+      <router-link to="/cliente">Cliente</router-link>
+    </a>
+    <a class="nav-link">
+      <router-link to="/ordemservico">Aparelho</router-link>
+    </a>
   </nav>
   <router-view/>
 </template>
@@ -16,7 +26,7 @@
 }
 
 nav {
-  padding: 30px;
+  background-color: rgb(241, 241, 241);
 }
 
 nav a {
