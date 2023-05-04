@@ -1,15 +1,19 @@
 <template>
-    <button type="button" class="btn btn-primary" @click="toggleInserirCliente">Novo Cliente</button>
+    <button type="button" class="btn btn-primary" @click="toggleInserirCliente" 
+            style="margin-top: 10px;"
+            >Novo Cliente</button>
     <div class="input-cliente" v-if="showClienteForm">
         <ClienteForm/>
     </div>
     <div class="tabela-clientes">
         <ul class="list-group">
-            <div class="d-flex flex-row">
-                <div class="flex-column">
-                    <span class="dot"></span>
+            <li class="list-group-item">
+                <div class="d-flex flex-row">
+                    <div class="flex-column">
+                        <span class="dot"></span>
+                    </div>
                 </div>
-            </div>
+            </li>
         </ul>
     </div>
 </template>
@@ -55,5 +59,13 @@ export default {
         background-color: #bbb;
         border-radius: 50%;
         display: inline-block;
+    }
+
+    .tabela-clientes {
+        padding: 10px
+    }
+
+    .linha-cliente {
+        border: 1px solid gray;
     }
 </style>

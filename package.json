@@ -9,8 +9,10 @@
   "dependencies": {
     "bootstrap": "^5.2.3",
     "core-js": "^3.8.3",
+    "maska": "^2.1.8",
     "pg": "^8.10.0",
     "vue": "^3.2.13",
+    "vue-date-pick": "^1.5.1",
     "vue-router": "^4.0.3"
   },
   "devDependencies": {

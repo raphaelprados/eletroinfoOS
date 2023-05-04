@@ -10,7 +10,7 @@
       <router-link to="/cliente">Cliente</router-link>
     </a>
     <a class="nav-link">
-      <router-link to="/ordemservico">Aparelho</router-link>
+      <router-link to="/aparelho">Aparelho</router-link>
     </a>
   </nav>
   <router-view/>
