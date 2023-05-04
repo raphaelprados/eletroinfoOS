@@ -8,26 +8,27 @@
         <button class="btn btn-primary" style="margin-left: 10px; heigth: 10px;"
                 @click="toggleCreateOS">Nova OS</button>  
     </div>
-    <div class="tabela">
-        <ul class="list-group">
-        <li class="list-group-item"></li>
-        </ul>
-    </div>
+    <ordem-servico-form v-if="showOSForm"/>
 </template>
 
 <script>
+import OrdemServicoForm from '@/components/OrdemServicoForm.vue'
+
 export default {
     data() {
         return {
-        tagsPesquisa: [],
-        showOSForm: false,
-        ordemServicoList: []
+            tagsPesquisa: [],
+            showOSForm: false,
+            ordemServicoList: []
         }
     },
     methods: {
         toggleCreateOS() {
             this.showOSForm = !this.showOSForm
         }
+    },
+    components: {
+        OrdemServicoForm
     }
 }
 </script>

@@ -13,13 +13,6 @@
                         v-model="cliente.nome" required>
             </div>
         </div>
-        <span>{{ cliente.date }}</span>
-        <br>
-        <span>{{ cliente.nome }}</span>
-        <br>
-        <span>{{ cliente.cpf }}</span>
-        <br>
-        <span>{{ cliente.telefone }}</span>
     </form>
 </template>
 
@@ -36,10 +29,7 @@ export default {
             cpf: "XXXXXXXXX",
             telefone: ""
         },
-    }),
-    updated() {
-        
-    }
+    })
 }
 </script>
 
