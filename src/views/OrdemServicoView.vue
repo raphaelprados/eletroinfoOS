@@ -1,7 +1,7 @@
 <template>
     <div class="btn-group" role="group" aria-label="Novo Registro">
         <button class="btn btn-primary top-btn"
-            @click="toggleCreateOS">Novo Registro</button>  
+            @click="toggleModal" :disabled="showOSForm">Novo Registro</button>  
     </div>
     <div class="input-group" style="padding: 10px;">
         <span class="input-group-text" id="buscaLabel">Pesquisar</span>
@@ -10,18 +10,16 @@
                 :disabled="showOSForm" v-model="tag" @keyup="onComma">
     </div>
     <div v-for="tags in tagsPesquisa" :key="tags">
-        <!-- <div class="search-tag"></div> -->
-        <div>
+        <div class="tags-container">
             <span class="search-tag">
                 {{ tags }}
-                <button type="button" class="close" aria-label="Close">
-                    <span aria-hidden="true" @click="remover(tags)">&times;</span>
-                </button>
+                <button type="button" class="btn-close btn-xs" aria-label="Close" @click="remover(tags)"></button>
             </span>
         </div>
     </div>
-    <!-- <ordem-servico-form v-if="showOSForm"/> -->
-    <Modal @close="toggleModal" v-if="showOSForm"/>
+    <Modal @close="toggleModal" v-if="showOSForm">
+        <OrdemServicoForm/>
+    </Modal>
 </template>
 
 <script>
@@ -68,6 +66,9 @@ export default {
         background-color: rgb(238, 238, 238);
         padding: 5px;
         border-radius: 5px;
+        display: inline-block;
+    }
+    .tags-container {
         display: inline-block;
     }
 </style>

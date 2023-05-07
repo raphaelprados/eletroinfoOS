@@ -1,5 +1,6 @@
 <template>
     <form class="container-fluid">
+        <h1>Dados do Cliente</h1>
         <div class="d-flex flex-column" style="padding: 10px">
             <div class="d-flex flex-row" style="margin-bottom: 10px">
                 <input type="date" class="form-control me-2" v-model="cliente.date">

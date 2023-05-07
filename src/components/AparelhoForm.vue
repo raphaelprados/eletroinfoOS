@@ -1,5 +1,6 @@
 <template>
-    <div class="d-flex flex-column" style="padding: 20px">
+    <div class="d-flex flex-column" style="padding: 10px;">
+        <h1>Dados do Aparelho</h1>
         <div class="d-flex flex-column">
             <div class="d-flex flex-row" style="margin-bottom: 10px">
                 <div class="input-group">

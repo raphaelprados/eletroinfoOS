@@ -23,15 +23,11 @@
                 </div>
             </div>
         </div>
-
-        <h1>Dados do Cliente</h1>
-        <cliente-form/>
-
-        <h1>Dados do Aparelho</h1>
+        <ClienteForm/>
         <div class="input-group">
             <div class="d-flex flex-row">
                 <div class="d-flex flex-column">
-                    <aparelho-form :showNumeroSerie="true"/>
+                    <AparelhoForm :showNumeroSerie="true"/>
                     <div style="margin-left: 20px; margin-right: 20px">
                         <div class="input-group" style="margin-bottom: 10px">
                             <span class="input-group-text" id="ReclamacaoLabel">Reclamacao</span>
@@ -54,6 +50,7 @@
                     </div>
                 </div>
                 <div class="d-flex flex-column" style="margin-left: 10px; margin-top: 20px">
+                    <h1>Datas</h1>
                     <div class="input-group" style="margin-bottom: 10px">
                         <span class="input-group-text" id="PrometidoLabel">Prometido</span>
                         <input type="date" class="form-control" id="idPrometido"
@@ -87,6 +84,10 @@
                 </div>
             </div>
         </div>
+        <div class="submit">
+            <button type="button" class="btn btn-primary">Salvar</button>
+        </div>
+        
     </div>
 </template>
 
@@ -138,8 +139,11 @@ export default {
 </script>
 
 <style>
-    h1 {
-        font-size: 24px;
+    .submit {
         margin-top: 10px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: right;
     }
 </style>

@@ -1,7 +1,10 @@
 <template>
-    <div class="backdrop" @click="closeModal">
+    <div class="backdrop" @click.self="closeModal()">
         <div class="custom-modal">
-            <p>modal content</p>
+            <div class="modal-header">
+                <button type="button" class="btn-close" aria-label="Close" @click="closeModal"></button>
+            </div>
+            <slot></slot>
         </div>
     </div>
 </template>
@@ -9,8 +12,8 @@
 <script>
 export default {
     methods: {
-        closeModal() {
-            this.$emit('close')
+        closeModal(e) {
+            this.$emit('close')   
         }
     }
 }
@@ -18,7 +21,7 @@ export default {
 
 <style>
     .custom-modal {
-        width: 400px;
+        width: 90%;
         padding: 20px;
         margin: 100px auto;
         background: white;
@@ -30,5 +33,15 @@ export default {
         background: rgba(0, 0, 0, 0.5);
         width: 100%;
         height: 100%;
+    }
+    .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        padding: 10px;
+    }
+    h1 {
+        font-size: 24px;
+        margin-top: 10px;
     }
 </style>
