@@ -1,14 +1,17 @@
 <template>
-    <div class="btn-group" role="group" aria-label="Novo Registro">
-        <button class="btn btn-primary top-btn"
-            @click="toggleModal" :disabled="showOSForm">Novo Registro</button>  
+    <div class="search-header">
+        <div class="input-group" style="padding: 10px;">
+            <span class="input-group-text" id="buscaLabel">Pesquisar</span>
+            <input class="form-control" type="search" id="buscaId" aria-label="Busca" 
+                    placeholder="Digite as tags de busca" aria-describedby="buscaLabel"
+                    :disabled="showOSForm" v-model="tag" @keyup="onComma">
+        </div>
+        <div class="btn-group" role="group" aria-label="Novo Registro">
+            <button class="btn btn-primary top-btn"
+                @click="toggleModal" :disabled="showOSForm">Novo Registro</button>  
+        </div>
     </div>
-    <div class="input-group" style="padding: 10px;">
-        <span class="input-group-text" id="buscaLabel">Pesquisar</span>
-        <input class="form-control" type="search" id="buscaId" aria-label="Busca" 
-                placeholder="Digite as tags de busca" aria-describedby="buscaLabel"
-                :disabled="showOSForm" v-model="tag" @keyup="onComma">
-    </div>
+    
     <div v-for="tags in tagsPesquisa" :key="tags">
         <div class="tags-container">
             <span class="search-tag">
@@ -60,7 +63,6 @@ export default {
 <style>
     .top-btn {
         margin-left: 10px;
-        margin-top: 10px;
     }
     .search-tag {
         background-color: rgb(238, 238, 238);

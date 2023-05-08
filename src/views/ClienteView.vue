@@ -1,26 +1,22 @@
 <template>
-    <button type="button" class="btn btn-primary" @click="toggleInserirCliente" 
-            style="margin-top: 10px;"
-            >Novo Cliente</button>
+    <div class="search-header">
+        <div class="input-group" style="padding: 10px">
+            <span class="input-group-text" id="buscaLabel">Pesquisar</span>
+            <input class="form-control" type="search" id="buscaId" aria-label="Busca" 
+                    placeholder="Digite as tags de busca" aria-describedby="buscaLabel">
+        </div>
+        <button type="button" class="btn btn-primary" @click="toggleInserirCliente">Novo Cliente</button>
+    </div>
     <Modal @close="toggleInserirCliente" v-show="showClienteForm">
         <ClienteForm />
     </Modal>    
-    <!-- <div class="tabela-clientes">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <div class="d-flex flex-row">
-                    <div class="flex-column">
-                        <span class="dot"></span>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div> -->
+    <Listagem/>
 </template>
 
 <script>
 import ClienteForm from '@/components/ClienteForm.vue' 
 import Modal from '@/components/Modal.vue'
+import Listagem from '@/components/Listagem.vue'
 
 export default {
     data() {
@@ -44,7 +40,8 @@ export default {
     }, 
     components: {
         ClienteForm,
-        Modal
+        Modal,
+        Listagem
     },
     methods: {
         toggleInserirCliente() {
@@ -55,18 +52,5 @@ export default {
 </script>
 
 <style>
-    .dot {
-        height: 15px;
-        width: 15px;
-        background-color: #bbb;
-        border-radius: 50%;
-        display: inline-block;
-    }
-    .tabela-clientes {
-        padding: 10px
-    }
-
-    .linha-cliente {
-        border: 1px solid gray;
-    }
+    
 </style>

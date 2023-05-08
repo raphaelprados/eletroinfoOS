@@ -30,16 +30,20 @@
                     <AparelhoForm :showNumeroSerie="true"/>
                     <div style="margin-left: 20px; margin-right: 20px">
                         <div class="input-group" style="margin-bottom: 10px">
-                            <span class="input-group-text" id="ReclamacaoLabel">Reclamacao</span>
-                            <input type="text" class="form-control" id="IdReclamacao"
+                            <span class="input-group-text" id="ReclamacaoLabel">Alegação</span>
+                            <textarea class="form-control" aria-label="Alegação" v-bind="ordemServico.reclamacao"
+                                        aria-describedby="ReclamacaoLabel"></textarea>
+                            <!-- <input type="" class="form-control" id="IdReclamacao" 
                                     v-bind="ordemServico.reclamacao"
-                                    aria-label="Reclamacao" aria-describedby="ReclamacaoLabel">
+                                    aria-label="Reclamacao" aria-describedby="ReclamacaoLabel"> -->
                         </div>
                         <div class="input-group" style="margin-bottom: 10px" >
-                            <span class="input-group-text" id="TelefoneLabel">Observações</span>
-                            <input type="text" class="form-control" id="IdTelefone"
+                            <span class="input-group-text" id="ObservacoesLabel">Observações</span>
+                            <textarea class="form-control" aria-label="Observações" v-bind="ordemServico.observacoes"
+                                        aria-describedby="ObservacoesLabel"></textarea>
+                            <!-- <input type="text" class="form-control" id="IdTelefone"
                                     v-bind="ordemServico.observacoes"
-                                    aria-label="Telefone" aria-labelledby="TelefoneLabel">
+                                    aria-label="Telefone" aria-labelledby="TelefoneLabel"> -->
                         </div>
                         <div class="input-group">
                             <span class="input-group-text" id="TelefoneLabel">Acessórios</span>
