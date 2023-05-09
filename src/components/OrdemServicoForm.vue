@@ -1,29 +1,21 @@
 <template>
-    <div class="container-fluid">
-        <h1>Dados Básicos</h1>
-        <div class="d-flex flex-column" style="padding: 10px">
-            <div class="d-flex flex-row">
+    <div class="container-fluid" >
+        <h1>Cliente</h1>
+        <div class="column">
+            <div class="row">
                 <div class="input-group">
-                    <span class="input-group-text" id="DataEntradaLabel">Entrada</span>
-                    <input type="date" class="form-control" id="IdDataEntrada" 
-                            v-bind="ordemServico.dataEntrada"
-                            style="margin-right: 10px" aria-label="DataEntrada" aria-describedby="DataEntradaLabel">
-                </div>            
-                <div class="input-group">
-                    <span class="input-group-text" id="CpfLabel">CPF</span>
-                    <input type="text" class="form-control" id="IdCpf"
-                            v-bind="cliente.cpf"
-                            style="margin-right: 10px" aria-label="CPF" aria-describedby="CpfLabel">
-                </div>
-                <div class="input-group">
-                    <span class="input-group-text" id="TelefoneLabel">Telefone/ZAP</span>
-                    <input type="text" class="form-control" id="IdTelefone"
-                            v-bind="cliente.telefone"
-                            aria-label="Telefone" aria-labelledby="TelefoneLabel">
+                    <span class="input-group-text" id="ClienteLabel">Cliente</span>
+                    <select class="form-select select-cliente" aria-label="Selecionar cliente" v-model="cliente.id">
+                        <option value="null">Selecione o cliente</option>
+                        <option value="135">Joaquim dos Santos</option>
+                    </select>
+                    <button class="btn" :class="(clienteEdit) ? 'btn-warning' : 'btn-primary'" @click="toggleNewCliente">{{ addClienteBtnTxt }}</button>
                 </div>
             </div>
+            <div class="row"></div>
         </div>
-        <ClienteForm/>
+        <ClienteForm :edit="clienteEdit"/>
+        <SubmitButtons v-if="clienteEdit" @cancel="toggleNewCliente"/>
         <div class="input-group">
             <div class="d-flex flex-row">
                 <div class="d-flex flex-column">
@@ -33,17 +25,11 @@
                             <span class="input-group-text" id="ReclamacaoLabel">Alegação</span>
                             <textarea class="form-control" aria-label="Alegação" v-bind="ordemServico.reclamacao"
                                         aria-describedby="ReclamacaoLabel"></textarea>
-                            <!-- <input type="" class="form-control" id="IdReclamacao" 
-                                    v-bind="ordemServico.reclamacao"
-                                    aria-label="Reclamacao" aria-describedby="ReclamacaoLabel"> -->
                         </div>
                         <div class="input-group" style="margin-bottom: 10px" >
                             <span class="input-group-text" id="ObservacoesLabel">Observações</span>
                             <textarea class="form-control" aria-label="Observações" v-bind="ordemServico.observacoes"
                                         aria-describedby="ObservacoesLabel"></textarea>
-                            <!-- <input type="text" class="form-control" id="IdTelefone"
-                                    v-bind="ordemServico.observacoes"
-                                    aria-label="Telefone" aria-labelledby="TelefoneLabel"> -->
                         </div>
                         <div class="input-group">
                             <span class="input-group-text" id="TelefoneLabel">Acessórios</span>
@@ -91,53 +77,67 @@
         <div class="submit">
             <button type="button" class="btn btn-primary">Salvar</button>
         </div>
-        
     </div>
 </template>
 
 <script>
 import AparelhoForm from './AparelhoForm.vue'
 import ClienteForm from './ClienteForm.vue'
+import SubmitButtons from './SubmitButtons.vue'
 
 export default {
     name: 'OrdemServicoForm',
+    components: {
+        ClienteForm,
+        AparelhoForm,
+        SubmitButtons
+    },
     data() {
         return {
             cliente: {
+                id: null,
                 nome: "",
                 cpf: "",
-                telefone: "",
+                telA: "",
+                telB: "",
                 estado: "",
                 cidade: "",
                 rua: "",
                 numero: null,
-                tipo_moradia: 0
+                tpMoradia: 0,
+                string: "" 
             },
             aparelho: {
+                tipo_aprlho: "",
                 marca: "",
                 modelo: ""
             },
             ordemServico: {
                 numero: "",
-                idPersonalizado: "",
-                serialNumber: "",
-                dataEntrada: "",
-                dataPrometido: "",
-                dataOrcamento: "",
-                dataAutorizado: "",
-                dataPronto: "",
-                dataSaida: "",
+                idCustom: "",
+                sn: "",
+                dtEntrd: "",
+                dtPromt: "",
+                dtOrcmt: "",
+                dtAutrz: "",
+                dtPrnto: "",
+                dtSaida: "",
                 reclamacao: "",
                 diagnostico: "",
                 servico: "",
                 acessorios: "",
-                observacoes: ""
-            }
+                observacao: ""
+            },
+            clienteEdit: false,
+            clienteUpdate: false,
+            addClienteBtnTxt: "+"
         }
-    }, 
-    components: {
-        ClienteForm,
-        AparelhoForm
+    },
+    methods: {
+        toggleNewCliente() {
+            this.clienteEdit = !this.clienteEdit
+            this.addClienteBtnTxt = this.addClienteBtnTxt == "+" ? "x" : "+"
+        }
     }
 }
 </script>

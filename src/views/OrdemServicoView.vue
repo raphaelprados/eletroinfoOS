@@ -28,6 +28,7 @@
 <script>
 import OrdemServicoForm from '@/components/OrdemServicoForm.vue'
 import Modal from '@/components/Modal.vue'
+import ClienteForm from '@/components/ClienteForm.vue'
 
 export default {
     data() {
@@ -35,16 +36,21 @@ export default {
             tagsPesquisa: [],
             tag: "",
             showOSForm: false,
+            clienteForm: false,
             ordemServicoList: []
         }
     },
     components: {
         OrdemServicoForm,
+        ClienteForm,
         Modal 
     },
     methods: {
         toggleModal() {
             this.showOSForm = !this.showOSForm
+        },
+        toggleModalCli() {
+            this.clienteForm = !this.clienteForm
         },
         onComma(e) {
             if(e.key == ",") {
@@ -56,6 +62,9 @@ export default {
         remover(tag) {
             this.tagsPesquisa.splice(this.tagsPesquisa.indexOf(tag), 1)
         }
+    },
+    setup() {
+        
     }
 }
 </script>
@@ -71,6 +80,8 @@ export default {
         display: inline-block;
     }
     .tags-container {
-        display: inline-block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>

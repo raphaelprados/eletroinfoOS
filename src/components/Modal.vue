@@ -14,6 +14,9 @@ export default {
     methods: {
         closeModal(e) {
             this.$emit('close')   
+        },
+        cancelar() {
+            this.$emit('cancel')
         }
     }
 }
@@ -39,6 +42,12 @@ export default {
         align-items: center;
         justify-content: right;
         padding: 10px;
+    }
+    .modal.fade {
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .modal-backdrop.fade {
+        opacity: 0;
     }
     h1 {
         font-size: 24px;

@@ -1,17 +1,29 @@
 <template>
-    <form class="container-fluid">
-        <h1>Dados do Cliente</h1>
-        <div class="d-flex flex-column" style="padding: 10px">
+    <form class="container-fluid cliente-form">
+        <div class="d-flex flex-column">
             <div class="d-flex flex-row" style="margin-bottom: 10px">
-                <input type="date" class="form-control me-2" v-model="cliente.date">
-                <input type="text" class="form-control me-2" v-maska data-maska="###.###.###-##" 
-                        v-model="cliente.cpf" placeholder="Digite o CPF">
-                <input type="text" class="form-control me-2" v-maska data-maska="(##) #####-####" 
-                        v-model="cliente.telefone" placeholder="Digite o telefone">
+                <div class="flex-column">
+                    <label for="criacao">Data</label>
+                    <input type="text" class="form-control me-2" aria-labelledby="criacaoLabel" 
+                            v-model="cliente.date" disabled style="background-color: white" id="criacao">
+                </div>
+                <div class="flex-column">
+                    <label for="cpf">CPF</label>
+                    <input type="text" class="form-control me-2" v-maska data-maska="###.###.###-##" id="cpf" 
+                            v-model="cliente.cpf" placeholder="000.000.000-00" :disabled="!edit">
+                </div>
+                <div class="flex-column">
+                    <label for="telefone1">Telefone</label>
+                    <input type="text" class="form-control me-2" v-maska data-maska="(##) #####-####" id="telefone1"
+                        v-model="cliente.telefone" placeholder="(00) 00000-0000" :disabled="!edit">
+                </div>
             </div>
-            <div class="d-flex flex-row">
-                <input type="text" class="form-control me-2" placeholder="Nome Completo" aria-label="Nome" 
-                        v-model="cliente.nome" required>
+            <div class="flex-row">
+                <div class="d-flex flex-column">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control me-2" placeholder="Nome Completo" aria-label="Nome" 
+                            v-model="cliente.nome" required :disabled="!edit" id="nome">
+                </div>
             </div>
         </div>
     </form>
@@ -27,13 +39,22 @@ export default {
         cliente: {
             date: new Date().toLocaleDateString(),
             nome: "",
-            cpf: "XXXXXXXXX",
+            cpf: "",
             telefone: ""
         },
-    })
+    }),
+    props: {
+        edit: Boolean
+    }
 }
 </script>
 
 <style>
-
+    .cliente-form {
+        margin-top: 20px;
+    }
+    [placeholder]:focus::-webkit-input-placeholder {
+        transition: opacity 0.5s 0.5s ease; 
+        opacity: 0;
+    }
 </style>
