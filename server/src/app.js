@@ -15,6 +15,13 @@ app.get('/status', (req, res) => {
     })
 })
 
+app.post('/register', (req, res) => {
+    res.send({
+        message: `Hello ${req.body.email}! Your user has issued a post`,
+
+    })
+})
+
 app.listen(8081, () => {
     console.log('Server is running on port 8081')
 })
