@@ -15,7 +15,7 @@
             <div class="row"></div>
         </div>
         <ClienteForm :edit="clienteEdit"/>
-        <SubmitButtons v-if="clienteEdit" @cancel="toggleNewCliente"/>
+        <SubmitButtons v-if="clienteEdit" @cancel="toggleNewCliente" @save="postCliente"/>
         <div class="input-group">
             <div class="d-flex flex-row">
                 <div class="d-flex flex-column">
@@ -81,9 +81,12 @@
 </template>
 
 <script>
+// Vue imports
 import AparelhoForm from './AparelhoForm.vue'
 import ClienteForm from './ClienteForm.vue'
 import SubmitButtons from './SubmitButtons.vue'
+// DB Imports
+import AuthenticationService from '@/services/AuthenticationService'
 
 export default {
     name: 'OrdemServicoForm',
@@ -137,6 +140,13 @@ export default {
         toggleNewCliente() {
             this.clienteEdit = !this.clienteEdit
             this.addClienteBtnTxt = this.addClienteBtnTxt == "+" ? "x" : "+"
+        },
+        postCliente() {
+            AuthenticationService.register({
+                nome: this.cliente.nome,
+                cpf: this.cliente.cpf,
+                telefone: this.cliente.telA
+            })    
         }
     }
 }

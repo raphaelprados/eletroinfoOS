@@ -3,7 +3,6 @@
         <button class="btn btn-light" @click="cancelar">Cancelar</button>
         <button class="btn btn-primary" @click="salvar">Salvar</button>
     </div>
-    
 </template>
 
 <script>
