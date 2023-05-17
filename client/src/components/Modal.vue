@@ -24,11 +24,13 @@ export default {
 
 <style>
     .custom-modal {
-        width: 90%;
+        width: 80%;
+        height: 90%;
         padding: 20px;
-        margin: 100px auto;
+        margin: 20px auto;
         background: white;
         border-radius: 10px;
+        overflow: auto;
     }
     .backdrop {
         top: 0;
@@ -52,5 +54,8 @@ export default {
     h1 {
         font-size: 24px;
         margin-top: 10px;
+    }
+    .date-field {
+        max-width: 105px;
     }
 </style>

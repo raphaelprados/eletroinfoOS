@@ -1,4 +1,5 @@
 <template>
+    <h1>Cadastro de Cliente</h1>
     <div class="search-header">
         <div class="input-group" style="padding: 10px">
             <span class="input-group-text" id="buscaLabel">Pesquisar</span>
@@ -7,10 +8,10 @@
         </div>
         <button type="button" class="btn btn-primary" @click="toggleInserirCliente">Novo Cliente</button>
     </div>
+    <Listagem />
     <Modal @close="toggleInserirCliente" v-show="showClienteForm">
-        <ClienteForm />
+        <ClienteForm edit="true"/>
     </Modal>    
-    <Listagem/>
 </template>
 
 <script>
