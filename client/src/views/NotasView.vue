@@ -2,7 +2,7 @@
     <h1>Notas</h1>
     <button type="button" class="btn btn-primary" @click="createNota">Nova Nota</button>
     <div class="d-flex flex-wrap" v-for="nota in notas">
-        <Nota :texto="nota.texto" :color="nota.color" />
+        <Nota :texto="nota.texto" :color="nota.color" @close="deleteNota(nota)"/>
     </div>
 </template>
 
@@ -25,6 +25,9 @@ export default {
     methods: {
         createNota() {
             this.notas.push(this.newNota)
+        },
+        deleteNota(nota) {
+            this.notas.splice(this.notas.indexOf(nota))
         }
     }
 }

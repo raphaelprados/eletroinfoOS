@@ -2,7 +2,7 @@
     <div class="backdrop" @click.self="closeModal()">
         <div class="custom-modal">
             <div class="modal-header">
-                <button type="button" class="btn-close" aria-label="Close" @click="closeModal"></button>
+                <button type="button" class="btn-close" aria-label="Close" @click="closeModal"></button> 
             </div>
             <slot></slot>
         </div>

@@ -60,7 +60,7 @@
                             v-model="endereco.obs" required :disabled="!edit" id="observacao">
                 </div>
             </div>
-        </div>
+        </div>  
     </form>
 </template>
 
@@ -92,12 +92,6 @@ export default {
 <style>
     .cliente-form {
         margin-top: 20px;   
-    }
-    .fields-display {
-        display: flex;
-        width: 100%;
-        border: 1px solid black;
-        padding: 10px;
     }
     .select-estado {
         max-width: 200px;
