@@ -12,6 +12,9 @@
             <a class="nav-link">
                 <router-link to="/aparelho">Aparelho</router-link>
             </a>
+            <a class="nav-link">
+                <router-link to="/notas">Notas</router-link>
+            </a>
     </nav>
     <router-view/>
 </template>
