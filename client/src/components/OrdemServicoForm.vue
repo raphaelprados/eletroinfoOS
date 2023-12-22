@@ -44,31 +44,31 @@
                     <div class="input-group" style="margin-bottom: 10px">
                         <span class="input-group-text" id="PrometidoLabel">Prometido</span>
                         <input type="date" class="form-control" id="idPrometido"
-                                v-bind="ordemServico.dataPrometido"
+                                v-bind="ordemServico.dtPromt"
                                 aria-label="Prometido" aria-labelledby="PrometidoLabel">
                     </div>
                     <div class="input-group" style="margin-bottom: 10px">
                         <span class="input-group-text" id="OrcamentoLabel">Orcamento</span>
                         <input type="date" class="form-control" id="idOrcamento"
-                                v-bind="ordemServico.dataOrcamento"
+                                v-bind="ordemServico.dtOrcmt"
                                 aria-label="Orcamento" aria-labelledby="OrcamentoLabel">
                     </div>
                     <div class="input-group" style="margin-bottom: 10px">
                         <span class="input-group-text" id="AutorizadoLabel">Autorizado</span>
                         <input type="date" class="form-control" id="idAutorizado"
-                                v-bind="ordemServico.dataAutorizado"
+                                v-bind="ordemServico.dtAutrz"
                                 aria-label="Autorizado" aria-labelledby="AutorizadoLabel">
                     </div>
                     <div class="input-group" style="margin-bottom: 10px">
                         <span class="input-group-text" id="ProntoLabel">Pronto</span>
                         <input type="date" class="form-control" id="idPronto"
-                                v-bind="ordemServico.dataPronto"
+                                v-bind="ordemServico.dtPrnto"
                                 aria-label="Pronto" aria-labelledby="ProntoLabel">
                     </div>
                     <div class="input-group" style="margin-bottom: 10px">
                         <span class="input-group-text" id="SaidaLabel">Saída</span>
                         <input type="date" class="form-control" id="idSaida"
-                                v-bind="ordemServico.dataSaida"
+                                v-bind="ordemServico.dtSaida"
                                 aria-label="Saida" aria-labelledby="SaidaLabel">
                     </div>
                 </div>

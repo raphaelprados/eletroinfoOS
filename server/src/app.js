@@ -3,23 +3,32 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import morgan from 'morgan'
+import pg from 'pg'
+
+import routes from './routes.js'
 
 const app = express()
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/status', (req, res) => {
-    res.send({
-        message: 'hello world bitch'
-    })
+// Estabelecendo conexao do banco de dados
+const client = new pg.Client({
+    host: 'localhost',
+    port: 5432,
+    database: 'adminos',
+    user: 'postgres',
+    password: 'admin'
 })
 
-app.post('/register', (req, res) => {
-    res.send({
-        message: `Hello ${req.body.email}! Your user has issued a post`,
+routes(app)
 
-    })
+// Testando conexão do banco de dados
+client.connect((err) => {
+    if(err)
+        console.log('connection error', err.stack)
+    else
+        console.log('connected');
 })
 
 app.listen(8081, () => {
