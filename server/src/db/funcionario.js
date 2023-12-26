@@ -6,19 +6,13 @@ const Funcionario = sequelize.define('Funcionario', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    telefone: {
-        type: DataTypes.STRING(11)
-    },
-    // o campo armazena ambos os tipos de usuario. Controle de erros e realizado pelo front 
-    cpfCnpj: {
-        type: DataTypes.STRING(14)
-    },
-    pessJuridica: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
-    }
+    telefone: { type: DataTypes.STRING(11) },
+    cpf: { type: DataTypes.STRING(11) },
+    email: { type: DataTypes.STRING }
 })
+
+Funcionario.sync({ force: false })
 
 console.log(Funcionario === sequelize.models.Funcionario)
 
-
+module.exports = Funcionario
