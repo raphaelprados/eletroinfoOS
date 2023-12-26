@@ -7,9 +7,9 @@
         </div>
         <button class="btn btn-primary" @click="toggleAparelhoForm">Novo Aparelho</button>  
     </div>
-    <Modal v-if="showAparelhoForm" @close="toggleAparelhoForm">
+    <!-- <Modal v-if="showAparelhoForm" @close="toggleAparelhoForm">
         <AparelhoForm/>
-    </Modal>
+    </Modal> -->
 </template>
 
 <script>

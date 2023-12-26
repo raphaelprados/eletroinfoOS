@@ -21,20 +21,19 @@ const client = new pg.Client({
     password: 'admin'
 })
 
-// routes(app)
-
-app.post('/register', (req, res) => {
-    res.send({
-        message: `Hello ${req.body.email}! Your user was registered! Have fun!`
-    })
-})
-
 // Testando conexão do banco de dados
 client.connect((err) => {
     if(err)
         console.log('connection error', err.stack)
     else
         console.log('connected to ' + client.database);
+})
+
+// routes(app)
+app.post('/register', (req, res) => {
+    res.send({
+        message: `Hello ${req.body.email}! Your user was registered! Have fun!`
+    })
 })
 
 app.listen(8081, () => {
