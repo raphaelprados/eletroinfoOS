@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize'
-import { sequelize } from './database'
+import { sequelize } from '../db/database'
 
 
 const Funcionario = sequelize.define('Funcionario', {
