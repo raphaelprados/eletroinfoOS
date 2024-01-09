@@ -1,11 +1,11 @@
 
-const { Aparelho } = require('./aparelho') 
-const { Cliente } = require('./cliente')
-const { Endereco } = require('./endereco')
-const { Funcionario } = require('./funcionario')
-const { Marcas } = require('./marcas')
-const { Modelo } = require('./modelo')
-const { OrdemServico } = require('./ordemServico')
+import { Aparelho } from './aparelho' 
+import { Cliente } from './cliente'
+import { Endereco } from './endereco'
+import { Funcionario } from './funcionario'
+import { Marcas } from './marcas'
+import { Modelo } from './modelo'
+import { OrdemServico } from './ordemServico'
 
 function setAssociations() {
     
@@ -28,4 +28,4 @@ function setAssociations() {
     OrdemServico.belongsTo(Modelo)
 }
 
-module.exports = setAssociations
+export default setAssociations

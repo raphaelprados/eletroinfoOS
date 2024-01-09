@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes } = require('sequelize')
+import { Sequelize, DataTypes } from 'sequelize'
 const sequelize = new Sequelize('sqlite::memory')
 
 const Endereco = sequelize.define('Endereco', {
@@ -27,4 +27,4 @@ Endereco.sync({ force: false })
 
 console.log(Endereco === sequelize.models.Endereco)
 
-module.exports = Endereco
+export default Endereco

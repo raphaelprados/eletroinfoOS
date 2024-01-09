@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes, STRING, NOW } = require('sequelize')
+import { Sequelize, DataTypes } from 'sequelize'
 const sequelize = new Sequelize('sqlite::memory')
 
 const OrdemServico = sequelize.define('OrdemServico', {
@@ -35,4 +35,4 @@ OrdemServico.sync({ force: false })
 
 console.log(OrdemServico === sequelize.models.OrdemServico)
 
-module.exports = OrdemServico
+export default OrdemServico
