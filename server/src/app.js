@@ -4,7 +4,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import morgan from 'morgan'
 // import pg from 'pg'
-import { sequelize } from './db/database'
+import { sequelize } from './db'
 
 // import routes from './routes.js'
 

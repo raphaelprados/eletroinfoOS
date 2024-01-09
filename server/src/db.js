@@ -10,4 +10,4 @@ const sequelize = new Sequelize('adminos', 'postgres', 'admin', {
     dialect: 'postgres'
 })
 
-export default sequelize
+export default sequelize;
