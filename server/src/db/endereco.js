@@ -1,5 +1,5 @@
-import { Sequelize, DataTypes } from 'sequelize'
-const sequelize = new Sequelize('sqlite::memory')
+import { DataTypes } from 'sequelize'
+import { sequelize } from './database'
 
 const Endereco = sequelize.define('Endereco', {
     estado: {
