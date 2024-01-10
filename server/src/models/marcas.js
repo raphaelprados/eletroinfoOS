@@ -1,6 +1,5 @@
 import { DataTypes } from 'sequelize'
-import { sequelize } from '../db/database'
-
+import { sequelize } from '../sequel'
 
 const Marca = sequelize.define('Marca', {
     nome: {

@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize'
-import { sequelize } from '../db/database'
+import { sequelize } from '../sequel'
 
 const OrdemServico = sequelize.define('OrdemServico', {
     id: {
